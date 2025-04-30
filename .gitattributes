@@ -1,0 +1,37 @@
+# Enforce Unix-style (LF) line endings for all code and config files
+*.js       text eol=lf
+*.ts       text eol=lf
+*.json     text eol=lf
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.md       text eol=lf
+*.html     text eol=lf
+*.css      text eol=lf
+*.scss     text eol=lf
+*.env      text eol=lf
+*.txt      text eol=lf
+
+# Lock files should use LF to prevent cross-platform diffs
+package-lock.json text eol=lf
+pnpm-lock.yaml    text eol=lf
+yarn.lock         text eol=lf
+
+# Shell and scripting files
+*.sh       text eol=lf
+*.bash     text eol=lf
+
+# Windows batch files should retain CRLF
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+
+# Prevent binary files from being normalized
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.ico      binary
+*.pdf      binary
+*.zip      binary
+
+# Optional: Treat all files as text by default, normalize to LF
+*          text=auto eol=lf
