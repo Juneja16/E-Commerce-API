@@ -56,8 +56,13 @@ export const loginUser = async (req, res) => {
       .status(400)
       .send({ message: "Invalid password!", status: false });
   }
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+  const token2 = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
-  res.send({ message: "Login successful!", token, status: true, user });
+  res.cookie("token", token2, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+  });
+  res.send({ message: "Login successful!", status: true, user });
 };
